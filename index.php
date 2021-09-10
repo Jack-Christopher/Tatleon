@@ -88,7 +88,7 @@ if (isset($_GET['logout'])) {
         <a href="Dominio/Views/teacher_history.php" class="btn btn-lg btn-danger index_button"> Teacher History</a>
         <a href="Dominio/Views/resources.php" class="btn btn-lg btn-warning index_button"> Resources</a>
         <br>
-        <a href="#" class="btn btn-lg btn-primary index_button"> Coming soon... </a>
+        <a href="Dominio/Views/help_for_newbies.php" class="btn btn-lg btn-primary index_button"> Help for Newbies  </a>
         <a href="#" class="btn btn-lg btn-danger index_button"> Coming soon... </a>
         <a href="#" class="btn btn-lg btn-warning index_button"> Coming soon... </a>
         <br>
