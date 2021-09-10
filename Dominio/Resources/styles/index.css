@@ -1,0 +1,57 @@
+.index_button
+{
+    margin: 25px 50px 75px 100px !important;
+}
+#button_box
+{
+    background-image:url(../img/background.jpg);
+    background-attachment: fixed; 
+    background-size: cover;
+    border-radius: 25px;
+}
+#TDT_logo
+{
+    height: 75px;
+    width: auto;
+}
+
+
+@media screen and (max-width: 992px) 
+{
+    #dropdown_menu
+    {
+        display: inline !important;
+    }
+
+    #navbar_title
+    {
+        display: none !important;
+    }
+
+    .index_button
+    {
+        margin: 15px 25px 50px 50px !important;
+    }
+
+}
+
+@media screen and (max-width: 575px) 
+{
+    #logo
+    {
+        width:64%;
+        height:auto;
+    }
+    
+    #button_box
+    {
+        width:100%;
+        height:auto;
+        border-radius: 0px;
+    }
+
+    .index_button
+    {
+        margin: 25px 15px 25px 15px !important;
+    }
+}
