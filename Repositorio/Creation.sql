@@ -79,27 +79,6 @@ CREATE TABLE IF NOT EXISTS  Curso_Escuela (
     CONSTRAINT curso_escuela_unique UNIQUE (curso_id, escuela_id)
 );
 
-/*
-INSERT INTO Escuelas (nombre) VALUES ('Ciencias de la Computacion');
-INSERT INTO Escuelas (nombre) VALUES ('Educacion');
-INSERT INTO Usuarios (nombres, apellidos, email, username, clave, escuela_id) VALUES ('Jack Christopher', 'Huaihua Huayhua', 'jhuaihuah@unsa.edu.pe',"Jack", "JC", 1);
-INSERT INTO Usuarios (nombres, apellidos, email, username, clave, escuela_id) VALUES ('Rodrigo Jesus', 'Santisteban Pachari', 'rsantisteban@unsa.edu.pe', "Rodrigo", "RJ", 1);
-INSERT INTO Usuarios (nombres, apellidos, email, username, clave, escuela_id) VALUES ('Rommel Mario', 'Ccorahua Lozano', 'rccorahual@unsa.edu.pe', "Rommel", "RM", 2);
-INSERT INTO Links (nombre, descripcion, url_content, id_user, escuela_id) VALUES ('Earley Parser', 'Implementacion del Earley Parser en C++', 'https://www.youtube.com/watch?v=KFVrnC6eTqA', 1, 1);
-INSERT INTO Links (nombre, descripcion, url_content, id_user, escuela_id) VALUES ('Base De Datos Distribuida', 'Tienda Online con BD distribuida', 'https://www.youtube.com/watch?v=LePRM5XAILE', 2, 1);
-INSERT INTO Links (nombre, descripcion, url_content, id_user, escuela_id) VALUES ('Cuidados para COVID', 'Responsabilidad Social sobre el COVID', 'https://youtu.be/gGxrvF45-WA', 3, 2);
-INSERT INTO Teachers (nombres, apellidos) VALUES ('Carlos Eduardo', 'Atencio Torres');
-INSERT INTO Teachers (nombres, apellidos) VALUES ('Franci', 'Suni Lopez');
-INSERT INTO Comments (comentario, teacher_id) VALUES ('Muy buen curso', 1);
-INSERT INTO Comments (comentario, teacher_id) VALUES ('Explica bien las clases', 1);
-INSERT INTO Comments (comentario, teacher_id) VALUES ('Clases mayormente teoricas', 2);
-INSERT INTO Cursos (id, nombre) VALUES (1703134, 'Analisis Exploratorio de Datos Espaciales');
-INSERT INTO Resources (descripcion, url_content, id_user, curso_id) VALUES ('Curso de Analisis Exploratorio de Datos Espaciales', 'https://drive.google.com/drive/folders/19PVgeifvCG4r3xXCiwkmqQ3_fu9CqSMY?usp=sharing', 1, 1);
-
-SELECT L.id, L.nombre, L.descripcion, L.url_content, L.id_user, U.nombres "user_nombres" FROM Links L, Usuarios U WHERE L.escuela_id=1 AND L.id_user=U.id;
-
-select * from Usuarios;
-*/
 
 CREATE TABLE IF NOT EXISTS Links (
     id INTEGER NOT NULL  PRIMARY KEY AUTO_INCREMENT,
@@ -109,10 +88,18 @@ CREATE TABLE IF NOT EXISTS Links (
     escuela_id INTEGER NOT NULL
 );
 
-select * from links;
-select * from auditorias;
-delete from auditorias where id = 6;
-delete from links where id = 1;
+CREATE TABLE IF NOT EXISTS newbies_info (
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    escuela_id INTEGER NOT NULL,
+    email_contacto VARCHAR(100) NOT NULL,
+    whatsapp_group_url VARCHAR(150) NOT NULL,
+    mensaje_bienvenida VARCHAR(300) NOT NULL,
+    mensaje_ayuda VARCHAR(600) NOT NULL,
+    CONSTRAINT escuela_id_unique UNIQUE (escuela_id)
+);
 
-INSERT INTO ESCUELAS (nombre) Values('Ingenieria Electronica');
-INSERT INTO Cursos (id, nombre) VALUES (1703134, 'Analisis Exploratorio de Datos Espaciales');
+
+insert into newbies_info (escuela_id, email_contacto, whatsapp_group_url, mensaje_bienvenida, mensaje_ayuda) 
+values (1, 'jhuaihuah@unsa.edu.pe', 'chat.whatsapp.com/DZJ6RcYgj50Brhd4hGxDSJ', 
+'Bienvenido a la plataforma de Ciencias de la Computación de la UNSA',
+'El proceso de matriculas ya ha culminado, pero la re-matricula y la matricula por excepciones siguen vigentes.')
