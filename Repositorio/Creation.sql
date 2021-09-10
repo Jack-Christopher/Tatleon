@@ -100,6 +100,11 @@ CREATE TABLE IF NOT EXISTS newbies_info (
 
 
 insert into newbies_info (escuela_id, email_contacto, whatsapp_group_url, mensaje_bienvenida, mensaje_ayuda) 
-values (1, 'jhuaihuah@unsa.edu.pe', 'chat.whatsapp.com/DZJ6RcYgj50Brhd4hGxDSJ', 
+values (1, 'jhuaihuah@unsa.edu.pe', 'https://chat.whatsapp.com/DZJ6RcYgj50Brhd4hGxDSJ', 
 'Bienvenido a la plataforma de Ciencias de la Computación de la UNSA',
 'El proceso de matriculas ya ha culminado, pero la re-matricula y la matricula por excepciones siguen vigentes.')
+
+insert into newbies_info (escuela_id, email_contacto, whatsapp_group_url, mensaje_bienvenida, mensaje_ayuda)
+values (3, 'jhuaihuah@unsa.edu.pe', 'https://chat.whatsapp.com/F8r19d5nwh2G54SmLMt8Ac',
+'Bienvenido a la plataforma de Ing. Electronica de la UNSA', 
+'El inicio de clases empieza el dia lunes, y los cursos se dictan en el horario de 8:00 a 10:00 am.')

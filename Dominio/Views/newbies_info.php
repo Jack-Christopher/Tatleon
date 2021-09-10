@@ -1,6 +1,7 @@
 <?php
   require_once ('../../Repositorio/Conexion.php');
   require_once ('../../Controlador/important.php');
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +108,15 @@ if (isset($_GET['id']))
         </tr>
         <tr>
             <td>Enlace del Grupo de Whatsapp </td>
-            <td> <a class="btn btn-success" href="<?php echo $wa_url; ?>"> Unirse al Grupo de WhatsApp </a> </td>
+            <?php 
+            if ( $id == $_SESSION['escuela_id'] ) 
+            { ?>
+            <td> <a class="btn btn-success" target="blank" href="<?php echo $wa_url; ?>"> Unirse al Grupo de WhatsApp </a> </td>
+            <?php }
+            else
+            { ?>
+                <td> <a class="btn btn-success disabled"  > Unirse al Grupo de WhatsApp </a> </td>
+            <?php } ?>
         </tr>
         
       </tbody>
