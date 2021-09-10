@@ -7,7 +7,7 @@
 <html>
 
 <head>
-  <?php print_header("Link Repsoritory", "../Resources/img/web_icon.png", "../Resources/styles/index.css"); ?>
+  <?php print_header("Link Repository", "../Resources/img/web_icon.png", "../Resources/styles/index.css"); ?>
 </head>
 
 <body>
@@ -48,11 +48,30 @@
     $Conn = new Conexion();
     $Conn->conectar();
 
-    $sql = "SELECT * FROM Escuelas ORDER BY id";
+    if (isset($_GET['area'])) 
+    {
+      if ($_GET['area'] == "ing")
+      {
+        $sql = "SELECT * FROM Escuelas WHERE id LIKE '1%' ORDER BY id";
+        echo "<h1>Escuelas de Ingeniería</h1>";
+      }
+      else if ($_GET['area'] == "bio")
+      {
+        $sql = "SELECT * FROM Escuelas WHERE id LIKE '2%' ORDER BY id";
+        echo "<h1>Escuelas de Biomédicas</h1>";
+      }
+      else if ($_GET['area'] == "soc")
+      {
+        $sql = "SELECT * FROM Escuelas WHERE id LIKE '3%' ORDER BY id";     
+        echo "<h1>Escuelas de Sociales</h1>";
+      }
+    
+
+    
     $escuelas = $Conn->ejecutar($sql);
     ?>
 
-    <h1 class="display-3"> Escuelas </h1>
+    
     <br>
 
     <table class="table table-hover table-bordered">
@@ -83,6 +102,28 @@
 
   </div>
   </div>
+
+  <?php
+  }
+  else
+  {
+    echo "<br>";
+    echo "<div class=\"jumbotron\"  align=\"center\" style=\"background-color: #e0e0eb;\">";
+    echo "<br>";
+    echo "<h6 class=\"display-6\"> Áreas de Universidad Nacional de San Agustín </h6>";
+    echo "<br><br>";
+    echo "<a href=\"link_repository.php?area=ing\" class=\"btn btn-success btn-lg\">Ingenierías</a>";
+    echo "<br><br>";
+    echo "<a href=\"link_repository.php?area=bio\" class=\"btn btn-warning btn-lg\">Biomédicas</a>";
+    echo "<br><br>";
+    echo "<a href=\"link_repository.php?area=soc\" class=\"btn btn-danger btn-lg\">Sociales</a>";
+    echo "<br><br>";    
+    echo "</div>";
+    echo "<br>";
+  }
+  ?>
+
+
 
 
   <div class="container">

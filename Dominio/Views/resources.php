@@ -72,6 +72,10 @@
   {
     $sql = "SELECT C.id, C.nombre FROM Cursos C, Curso_Escuela CE WHERE CE.escuela_id =" . $_SESSION['escuela_id'] . " AND CE.curso_id = C.id";
   }
+  else
+  {
+    $sql = "SELECT id, nombre FROM Cursos";
+  }
   if  (isset($_GET['id'])) 
   {
     if ($_GET['id'] == "all") 
@@ -115,9 +119,16 @@
         }
       }
       else
+      {
+        if (isset($_SESSION['escuela_id']))
         {
-          echo "Cursos";
+          echo "Cursos de la escuela";
         }
+        else
+        {
+          echo "Todos los cursos";
+        }
+      }
     ?>
     </h1>
     <br><br>
